@@ -17,9 +17,9 @@
 'use strict';
 require('dotenv').config({ silent: true });
 
-var alchemyLanguage = require('../../lib/api/alchemy-language');
+var alchemyLanguage = require('../../lib/api/natural-language');
 
-describe('alchemy-language.js', function () {
+describe('natural-language.js', function () {
   this.timeout(3000);
   this.slow(1000);
   it('should return Miami if is detected', function (done) {
