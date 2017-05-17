@@ -25,8 +25,8 @@ A running instance of the application in this Starter Kit is available as a [dem
 ### Creating a [IBM Bluemix][bluemix] Account
 
 1. Go to https://bluemix.net/
-2. Create a Bluemix account if required.
-3. Log in with your IBM ID (the ID used to create your Bluemix account) 
+1. Create a Bluemix account if required.
+1. Log in with your IBM ID (the ID used to create your Bluemix account) 
 
 **Note:** The confirmation email from Bluemix mail take up to 1 hour.
 
@@ -42,68 +42,72 @@ A running instance of the application in this Starter Kit is available as a [dem
 1. [Sign up][sign_up] in Bluemix or use an existing account.
 1. If it is not already installed on your system, download and install the [Cloud-foundry CLI][cloud_foundry] tool.
 1. Edit the `manifest.yml` file in the folder that contains your code and replace `text-bot` with a unique name for your application. The name that you specify determines the application's URL, such as `your-application-name.mybluemix.net`. The relevant portion of the `manifest.yml` file looks like the following:
-
     ```yml
     declared-services:
-    conversation-service:
-      label: conversation
-      plan: free
-    weatherinsights-service:
-      label: weatherinsights
-      plan: Free-v2
-    cloudantNoSQLDB-service:
-      label: cloudantNoSQLDB
-      plan: Lite
+      conversation-service:
+        label: conversation
+        plan: free
+      weatherinsights-service:
+        label: weatherinsights
+        plan: Free-v2
+      natural-language-understanding-service:
+          label: natural-language-understanding
+          plan: free
+      cloudantNoSQLDB-service:
+        label: cloudantNoSQLDB
+        plan: Lite
     applications:
-      - services:
-        - conversation-service
-        - weatherinsights-service
-        - cloudantNoSQLDB-service
+    - services:
+       - conversation-service
+       - natural-language-understanding-service
+       - weatherinsights-service
+       - cloudantNoSQLDB-service
       name: text-bot
       command: npm start
       path: .
       memory: 512M
     ```
-
+    
 1. Connect to Bluemix by running the following commands in a terminal window:
-
+  
   ```none
   cf api https://api.ng.bluemix.net
   cf login
   ```
-
+  
 1. Create and retrieve service keys to access the [Conversation](http://www.ibm.com/watson/developercloud/doc/conversation/) service by running the following command:
-
+  
   ```none
   cf create-service conversation free conversation-service
   cf create-service-key conversation-service myKey
   cf service-key conversation-service myKey
   ```
-
-1. Create and retrieve an API key to access the [Alchemy Language](http://www.ibm.com/watson/developercloud/alchemy-language.html) service (if you already have instance skip this step) by running the following command:
-
+  
+1. Create and retrieve an API key to access the [Natural Language Understanding](https://www.ibm.com/watson/developercloud/natural-language-understanding.html) service (if you already have instance skip this step) by running the following command:
+  
   ```none
-  cf create-service alchemy_api free alchemy-language-service
-  cf create-service-key alchemy-language-service myKey
-  cf service-key alchemy-language-service myKey
+  cf create-service natural-language-understanding free natural-language-understanding-service
+  cf create-service-key natural-language-understanding-service myKey
+  cf service-key natural-language-understanding-service myKey
+  
   ```
-
+  
 1. Create and retrieve service keys to access the [Weather Insights service](https://console.ng.bluemix.net/docs/services/InsightsWeather/index.html) by running the following command:
-
+  
   ```none
   cf create-service weatherinsights Free-v2 weatherinsights-service
   cf create-service-key weatherinsights-service myKey
   cf service-key weatherinsights-service myKey
   ```
-
+  
 1. Create an instance of the [Cloudant NoSQL database](https://cloudant.com/) service by running the following command:
-
+  
   ```none
   cf create-service cloudantNoSQLDB Lite cloudantNoSQLDB-service
   cf create-service-key cloudantNoSQLDB-service myKey
   cf service-key cloudantNoSQLDB-service myKey
   ```
-
+  
 1. The Conversation service must be trained before you can successfully use this application.
    The training data is provided in the file `resources/conversation-training-data.json`.
    To train the model used by the Conversation service, do the following:
@@ -136,30 +140,33 @@ A running instance of the application in this Starter Kit is available as a [dem
 
     The `.env` file will look something like the following:
 
-    ```none
+   ```none
     USE_WEBUI=true
-    ALCHEMY_API_KEY=
-
+    
+    #NATURAL LANGUAGE UNDERSTANDING
+    NLU_USERNAME=
+    NLU_PASSWORD=
+    
     #CONVERSATION
     CONVERSATION_URL=https://gateway.watsonplatform.net/conversation/api
     CONVERSATION_USERNAME=
     CONVERSATION_PASSWORD=
     WORKSPACE_ID=
-
+    
     #WEATHER
     WEATHER_URL=https://twcservice.mybluemix.net/api/weather
     WEATHER_USERNAME=
     WEATHER_PASSWORD=
-
-
+    
+    
     #CLOUDANT
     CLOUDANT_URL=
-
+    
     #FACEBOOK
     USE_FACEBOOK=false
     FACEBOOK_ACCESS_TOKEN=
     FACEBOOK_VERIFY_TOKEN=
-
+    
     #TWILIO
     USE_TWILIO=false
     USE_TWILIO_SMS=false
@@ -169,7 +176,7 @@ A running instance of the application in this Starter Kit is available as a [dem
     TWILIO_API_SECRET=
     TWILIO_IPM_SERVICE_SID=
     TWILIO_NUMBER=
-    ```
+   ```
 
 
 1. Install the dependencies you application need:
@@ -258,9 +265,10 @@ The following links provide more information about the Conversation, WeatherInsi
   * [API reference](https://console.ng.bluemix.net/docs/services/Weather/weather_tutorials_samples.html#tutorials_samples): Code examples and reference
   * [API Explorer](https://console.ng.bluemix.net/docs/services/Weather/weather_rest_apis.html#rest_apis): Try out the REST API
 
-### Alchemy Language
-  * [API documentation](http://www.alchemyapi.com/api): Get an in-depth understanding of the AlchemyAPI services
-  * [AlchemyData News reference](http://docs.alchemyapi.com/): API and query gallery
+### Natural Language Understanding
+  * [API documentation](https://www.ibm.com/watson/developercloud/doc/natural-language-understanding/): Get an in-depth understanding of the Natural language Understanding services
+  * [API reference](https://www.ibm.com/watson/developercloud/natural-language-understanding/api): SDK code examples and reference
+  * [API Explorer](https://watson-api-explorer.mybluemix.net/apis/natural-language-understanding-v1): Try out the API
 
 ### Cloudant service
   * [API documentation](https://console.ng.bluemix.net/docs/services/Cloudant/index.html#Cloudant): Get an in-depth understanding of the Cloudant services
@@ -332,13 +340,11 @@ Deployment tracking can be disabled by removing `require('cf-deployment-tracker-
 
 
 [wdc_services]: http://www.ibm.com/watson/developercloud/services-catalog.html
-[alchemy_language]: http://www.ibm.com/watson/developercloud/doc/alchemylanguage
 [cloud_foundry]: https://github.com/cloudfoundry/cli
 
 [deploy_track_url]: https://github.com/cloudant-labs/deployment-tracker
 [cloud_foundry]: https://github.com/cloudfoundry/cli
 [sign_up]: https://console.ng.bluemix.net/registration/
-[get-alchemyapi-key]: https://console.ng.bluemix.net/catalog/services/alchemyapi/
 
 [conversation]: http://www.ibm.com/watson/developercloud/doc/conversation/
 [alchemy-language]: http://www.ibm.com/watson/developercloud/alchemy-language.html

@@ -2,12 +2,20 @@ declared-services:
   conversation-service:
     label: conversation
     plan: free
+  weatherinsights-service:
+    label: weatherinsights
+    plan: Free-v2
+  natural-language-understanding-service:
+      label: natural-language-understanding
+      plan: free
   cloudantNoSQLDB-service:
     label: cloudantNoSQLDB
     plan: Lite
 applications:
 - services:
    - conversation-service
+   - natural-language-understanding-service
+   - weatherinsights-service
    - cloudantNoSQLDB-service
   name: text-bot
   command: npm start
