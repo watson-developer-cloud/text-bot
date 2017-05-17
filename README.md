@@ -30,7 +30,7 @@ A running instance of the application in this Starter Kit is available as a [dem
 
 **Note:** The confirmation email from Bluemix mail take up to 1 hour.
 
-### Deploy this sample application in Bluemix
+## Deploy this sample application in Bluemix
 
 1. Clone the repository into your computer and navigate to the new directory
 
@@ -69,44 +69,43 @@ A running instance of the application in this Starter Kit is available as a [dem
     ```
     
 1. Connect to Bluemix by running the following commands in a terminal window:
-  
-  ```none
-  cf api https://api.ng.bluemix.net
-  cf login
-  ```
-  
+
+    ```
+    cf api https://api.ng.bluemix.net
+    cf login
+    ```
+
 1. Create and retrieve service keys to access the [Conversation](http://www.ibm.com/watson/developercloud/doc/conversation/) service by running the following command:
   
-  ```none
-  cf create-service conversation free conversation-service
-  cf create-service-key conversation-service myKey
-  cf service-key conversation-service myKey
-  ```
+    ```none
+    cf create-service conversation free conversation-service
+    cf create-service-key conversation-service myKey
+    cf service-key conversation-service myKey
+    ```
   
 1. Create and retrieve an API key to access the [Natural Language Understanding](https://www.ibm.com/watson/developercloud/natural-language-understanding.html) service (if you already have instance skip this step) by running the following command:
   
-  ```none
-  cf create-service natural-language-understanding free natural-language-understanding-service
-  cf create-service-key natural-language-understanding-service myKey
-  cf service-key natural-language-understanding-service myKey
-  
-  ```
+    ```none
+    cf create-service natural-language-understanding free natural-language-understanding-service
+    cf create-service-key natural-language-understanding-service myKey
+    cf service-key natural-language-understanding-service myKey
+     ```
   
 1. Create and retrieve service keys to access the [Weather Insights service](https://console.ng.bluemix.net/docs/services/InsightsWeather/index.html) by running the following command:
   
-  ```none
-  cf create-service weatherinsights Free-v2 weatherinsights-service
-  cf create-service-key weatherinsights-service myKey
-  cf service-key weatherinsights-service myKey
-  ```
+    ```none
+     cf create-service weatherinsights Free-v2 weatherinsights-service
+    cf create-service-key weatherinsights-service myKey
+     cf service-key weatherinsights-service myKey
+     ```
   
 1. Create an instance of the [Cloudant NoSQL database](https://cloudant.com/) service by running the following command:
   
-  ```none
-  cf create-service cloudantNoSQLDB Lite cloudantNoSQLDB-service
-  cf create-service-key cloudantNoSQLDB-service myKey
-  cf service-key cloudantNoSQLDB-service myKey
-  ```
+     ```none
+     cf create-service cloudantNoSQLDB Lite cloudantNoSQLDB-service
+     cf create-service-key cloudantNoSQLDB-service myKey
+     cf service-key cloudantNoSQLDB-service myKey
+     ```
   
 1. The Conversation service must be trained before you can successfully use this application.
    The training data is provided in the file `resources/conversation-training-data.json`.
@@ -132,15 +131,15 @@ A running instance of the application in this Starter Kit is available as a [dem
 
 1. Create a `.env` file in the root directory of your clone of the project repository by copying the sample `.env.example` file using the following command:
 
-  ```none
-  cp .env.example .env
-  ```
+    ```none
+    cp .env.example .env
+    ```
 
     You will update the `.env` with the information you retrieved in steps 6 - 9.
-
+    
     The `.env` file will look something like the following:
 
-   ```none
+    ```yml
     USE_WEBUI=true
     
     #NATURAL LANGUAGE UNDERSTANDING
@@ -176,20 +175,19 @@ A running instance of the application in this Starter Kit is available as a [dem
     TWILIO_API_SECRET=
     TWILIO_IPM_SERVICE_SID=
     TWILIO_NUMBER=
-   ```
-
+    ```
 
 1. Install the dependencies you application need:
 
-```none
-npm install
-```
+    ```none
+    npm install
+    ```
 
 1. Start the application locally:
 
-```none
-npm start
-```
+    ```none
+    npm start
+    ```
 
 1. Test your application by going to: [http://localhost:3000/](http://localhost:3000/)
 
