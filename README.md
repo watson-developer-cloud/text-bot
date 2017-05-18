@@ -28,7 +28,7 @@ A running instance of the application in this Starter Kit is available as a [dem
 1. Create a Bluemix account if required.
 1. Log in with your IBM ID (the ID used to create your Bluemix account) 
 
-**Note:** The confirmation email from Bluemix mail may take up to 1 hour.
+**Note:** The confirmation email from Bluemix may take up to 1 hour.
 
 ## Deploy this sample application in Bluemix
 
