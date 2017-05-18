@@ -17,7 +17,7 @@
 'use strict';
 require('dotenv').config({ silent: true });
 
-var alchemyLanguage = require('../../lib/api/natural-language');
+var nlu = require('../../lib/api/natural-language');
 
 describe('natural-language.js', function () {
   this.timeout(3000);
@@ -26,7 +26,7 @@ describe('natural-language.js', function () {
     var params = {
       text: 'I live in Miami'
     };
-    alchemyLanguage.extractCity(params, function (err, city) {
+    nlu.extractCity(params, function (err, city) {
       if (city.name === 'Miami') {
         done();
       } else {
@@ -39,7 +39,7 @@ describe('natural-language.js', function () {
     var params = {
       text: 'We don\'t have cities here'
     };
-    alchemyLanguage.extractCity(params, function (err, city) {
+    nlu.extractCity(params, function (err, city) {
       if (!city) {
         done();
       } else {
