@@ -22,13 +22,13 @@ A running instance of the application in this Starter Kit is available as a [dem
 
 ## Getting Started
 
-### Creating a [IBM Bluemix][bluemix] Account
+### Creating a Bluemix Account
 
-1. Go to https://bluemix.net/
+1. Go to [https://bluemix.net](https://bluemix.net)
 1. Create a Bluemix account if required.
 1. Log in with your IBM ID (the ID used to create your Bluemix account) 
 
-**Note:** The confirmation email from Bluemix mail take up to 1 hour.
+**Note:** The confirmation email from Bluemix mail may take up to 1 hour.
 
 ## Deploy this sample application in Bluemix
 
@@ -223,12 +223,6 @@ Begin entering questions such as “what is the weather for Austin, Texas?” If
 ### Debugging the application
 
   To debug the application, go to `https://text-bot.mybluemix.net/debug.html` to see a panel that shows metadata which contains details on the interaction with the services being used.
-
-## Congratulations
-
-You have completed the instructions to create and configure the Text Bot! :bowtie:
-
- ![Congratulations](http://i.giphy.com/3oEjI5VtIhHvK37WYo.gif)
 
 
 ## About the Weather Conversation pattern
