@@ -17,16 +17,16 @@
 'use strict';
 require('dotenv').config({ silent: true });
 
-var alchemyLanguage = require('../../lib/api/alchemy-language');
+var nlu = require('../../lib/api/natural-language');
 
-describe('alchemy-language.js', function () {
+describe('natural-language.js', function () {
   this.timeout(3000);
   this.slow(1000);
   it('should return Miami if is detected', function (done) {
     var params = {
       text: 'I live in Miami'
     };
-    alchemyLanguage.extractCity(params, function (err, city) {
+    nlu.extractCity(params, function (err, city) {
       if (city.name === 'Miami') {
         done();
       } else {
@@ -39,7 +39,7 @@ describe('alchemy-language.js', function () {
     var params = {
       text: 'We don\'t have cities here'
     };
-    alchemyLanguage.extractCity(params, function (err, city) {
+    nlu.extractCity(params, function (err, city) {
       if (!city) {
         done();
       } else {

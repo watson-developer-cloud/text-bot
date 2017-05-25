@@ -28,7 +28,7 @@ describe('weather.js', function() {
 
   it('should return error for non-US locations', function(done) {
     weather.geoLocation({name: 'Mar del Plata'}, function(err) {
-      if (err && err.lastIndexOf('The resource requested could not be located', 0) === 0)
+      if (err && err === "Error http status: 404")
         done();
       else
         done(err);
