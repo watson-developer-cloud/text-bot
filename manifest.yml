@@ -1,7 +1,7 @@
 declared-services:
   conversation-service:
     label: conversation
-    plan: free
+    plan: lite
   weatherinsights-service:
     label: weatherinsights
     plan: Free-v2
