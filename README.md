@@ -47,7 +47,7 @@ A running instance of the application in this Starter Kit is available as a [dem
     declared-services:
     conversation-service:
       label: conversation
-      plan: free
+      plan: lite
     weatherinsights-service:
       label: weatherinsights
       plan: Free-v2
@@ -75,7 +75,7 @@ A running instance of the application in this Starter Kit is available as a [dem
 1. Create and retrieve service keys to access the [Conversation](http://www.ibm.com/watson/developercloud/doc/conversation/) service by running the following command:
 
   ```none
-  cf create-service conversation free conversation-service
+  cf create-service conversation lite conversation-service
   cf create-service-key conversation-service myKey
   cf service-key conversation-service myKey
   ```
