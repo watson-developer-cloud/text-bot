@@ -22,15 +22,15 @@ A running instance of the application in this Starter Kit is available as a [dem
 
 ## Getting Started
 
-### Creating a [IBM Bluemix][bluemix] Account
+### Creating an [IBM Cloud][IBM Cloud] Account
 
 1. Go to https://bluemix.net/
-2. Create a Bluemix account if required.
-3. Log in with your IBM ID (the ID used to create your Bluemix account) 
+2. Create an IBM Cloud account if required.
+3. Log in with your IBM ID (the ID used to create your IBM Cloud account) 
 
-**Note:** The confirmation email from Bluemix mail take up to 1 hour.
+**Note:** The confirmation email from IBM Cloud mail take up to 1 hour.
 
-### Deploy this sample application in Bluemix
+### Deploy this sample application in IBM Cloud
 
 1. Clone the repository into your computer and navigate to the new directory
 
@@ -39,7 +39,7 @@ A running instance of the application in this Starter Kit is available as a [dem
    cd text-bot
    ```
 
-1. [Sign up][sign_up] in Bluemix or use an existing account.
+1. [Sign up][sign_up] in IBM Cloud or use an existing account.
 1. If it is not already installed on your system, download and install the [Cloud-foundry CLI][cloud_foundry] tool.
 1. Edit the `manifest.yml` file in the folder that contains your code and replace `text-bot` with a unique name for your application. The name that you specify determines the application's URL, such as `your-application-name.mybluemix.net`. The relevant portion of the `manifest.yml` file looks like the following:
 
@@ -65,7 +65,7 @@ A running instance of the application in this Starter Kit is available as a [dem
       memory: 512M
     ```
 
-1. Connect to Bluemix by running the following commands in a terminal window:
+1. Connect to IBM Cloud by running the following commands in a terminal window:
 
   ```none
   cf api https://api.ng.bluemix.net
@@ -108,7 +108,7 @@ A running instance of the application in this Starter Kit is available as a [dem
    The training data is provided in the file `resources/conversation-training-data.json`.
    To train the model used by the Conversation service, do the following:
 
-    1. Login to Bluemix
+    1. Login to IBM Cloud
 
     2. Navigate to upper left hand side and click on the 3 parallel lines and select **Dashboard** from the left hand navigation panel.
 
@@ -198,7 +198,7 @@ npm start
 
 3. Modify the file `lib/bot/bot.js` to include your own bot handling code. If you would like to use a separate bot messaging service (such as `wit.ai`, `converse.ai`, and so on ), you can add the middleware to each bot instance that you'd like for that service to use, and configure it with the single `bot.js` file.
 
-### Deploying your Bot to Bluemix    
+### Deploying your Bot to IBM Cloud    
 
 1. Push the updated application live by running the following command:
 
@@ -212,7 +212,7 @@ After completing the steps above, you are ready to test your application. Start 
 
                   <your application name>.mybluemix.net
 
-You can also find your application name when you click on your application in Bluemix.
+You can also find your application name when you click on your application in IBM Cloud.
 
 Begin entering questions such as “what is the weather for Austin, Texas?” If you don’t enter a state, it will ask you to clarify what state.
 
@@ -229,7 +229,7 @@ You have completed the instructions to create and configure the Text Bot! :bowti
 
 ## About the Weather Conversation pattern
 
-This Starter Kit uses weather information from the WeatherInsights service to demonstrate how to integrate a bot with the Conversation service available on Bluemix. It provides extension points for integration botkits from vendors such as Facebook and Twilio.
+This Starter Kit uses weather information from the WeatherInsights service to demonstrate how to integrate a bot with the Conversation service available on IBM Cloud. It provides extension points for integration botkits from vendors such as Facebook and Twilio.
 
 For a given input *(e.g. question about weather in Austin, TX)* , a trained Conversation service instance responds with weather forecast. The service is composed of a model trained with a set of intents and entities (in this case, the intent is to get the forecast and the entities are cities that the user might want to know the forecast for). The dialog agent of the Conversation service is responsible for interacting with the user and keeping track of the context of the conversation so that it can provide answers to follow up questions about the same topic.
 
@@ -294,7 +294,7 @@ Most of the best practices associated with writing a conversational application 
 
 ## Troubleshooting
 
-To troubleshoot your Bluemix application, use the logs. To see the logs, run:
+To troubleshoot your IBM Cloud application, use the logs. To see the logs, run:
 
   ```bash
   cf logs <application-name> --recent
@@ -319,14 +319,14 @@ You may notice that the demo becomes unresponsive when you use the word "in" wit
 
 ### Privacy Notice
 
-This node sample web application includes code to track deployments to Bluemix and other Cloud Foundry platforms. The following information is sent to a Deployment Tracker service on each deployment:
+This node sample web application includes code to track deployments to IBM Cloud and other Cloud Foundry platforms. The following information is sent to a Deployment Tracker service on each deployment:
 
 * Application Name (`application_name`)
 * Space ID (`space_id`)
 * Application Version (`application_version`)
 * Application URIs (`application_uris`)
 
-This data is collected from the `VCAP_APPLICATION` environment variable in IBM Bluemix and other Cloud Foundry platforms. This data is used by IBM to track metrics around deployments of sample applications to IBM Bluemix. Only deployments of sample applications that include code to ping the Deployment Tracker service will be tracked.
+This data is collected from the `VCAP_APPLICATION` environment variable in IBM Cloud and other Cloud Foundry platforms. This data is used by IBM to track metrics around deployments of sample applications to IBM Cloud. Only deployments of sample applications that include code to ping the Deployment Tracker service will be tracked.
 
 ### Disabling Deployment Tracking
 
